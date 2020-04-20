@@ -1,2 +1,2 @@
-# python-script
-tweepy api python script
+# twitter script
+python script to get my twitter timeline /tweepy api.

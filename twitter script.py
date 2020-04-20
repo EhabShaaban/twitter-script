@@ -2,10 +2,12 @@ import tweepy
 from tweepy import Stream, OAuthHandler
 from tweepy.streaming import StreamListener
 
-consumer_key="MOx8bFSO4gQe5GW5TpW6YaikA"
-consumer_secret="8UZruw1DC0FymDescsunsy3JR4un3399EgQgPwc1YSSq2dp3ZP"
-access_token="901277118654500869-0snVPTIoOWxET9ozBo8ukHNW7hCGyiq"
-access_token_secret="Gyb5ie2D2B2dlQx0yK7keR45KiiDeWP7bpNq6PeoG6Bl5"
+#API key
+consumer_key=""
+#API secret key
+consumer_secret=""
+access_token=""
+access_token_secret=""
 
 class StdOutListener(StreamListener):
     def on_data(self, data):
@@ -21,7 +23,9 @@ api = tweepy.API(auth, wait_on_rate_limit=True,
 wait_on_rate_limit_notify=True, retry_count=3, retry_delay=60)
 
 twitterstream = Stream(auth, StdOutListener())
-#twitterstream.filter(track=["car"])
-#827002120373207040
-user = api.get_user(827002120373207040)
-print(user.screen_name)
+#tweets = twitterstream.filter(track=["car"])
+#print(tweets)
+# user = api.get_user(901277118654500869)
+# print(user.screen_name)
+alltweets = api.user_timeline(screen_name = "ehabfeki",count=10)
+print(alltweets)
